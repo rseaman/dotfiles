@@ -23,6 +23,7 @@
 "       http://amix.dk/vim/vimrc.txt
 "
 " Sections:
+"    -> Riley's Customization 1
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -38,6 +39,27 @@
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Riley's Customization 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+" All Plugins must be added before the following line
+call vundle#end()            " required
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
