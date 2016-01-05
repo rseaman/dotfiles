@@ -2,7 +2,4 @@
 . ~/.bash_prompt
 
 alias ll="ls -Gla"
-
-function govm {
-    ssh 192.168.0.50
-}
+alias govm="ssh govm"
