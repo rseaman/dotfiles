@@ -43,6 +43,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Riley's Customization 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
 set nocompatible
 filetype off                  " required
 
@@ -57,10 +58,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Add all plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+" Plugin 'nvie/vim-flake8'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
 
+" Plugin settings
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -300,6 +310,9 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
