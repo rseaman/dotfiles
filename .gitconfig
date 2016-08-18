@@ -8,3 +8,4 @@
     a = add
     cm = commit -m
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    s = status
