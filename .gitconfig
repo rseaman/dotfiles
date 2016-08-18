@@ -1,0 +1,10 @@
+[user]
+    #email = NEEDS INITIALIZATION
+	name = Riley Seaman
+[push]
+    default = simple
+[alias]
+    co = checkout
+    a = add
+    cm = commit -m
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
