@@ -1,13 +1,19 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+HOMEDIR='/home'
+UNAMESTR=`uname`
+if [[ "$UNAMESTR" == 'Darwin' ]]; then
+     HOMEDIR='/Users'
+fi
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/kingsrook/.oh-my-zsh
+  export ZSH=$HOMEDIR/$USER/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,9 +53,6 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# zsh theme
-ZSH_THEME=bira
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -59,6 +62,12 @@ plugins=(git python command-not-found common-aliases compleat debian docker hist
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# zsh theme
+ZSH_THEME="agnoster"
+
+# Syntax highlighting plugin
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
