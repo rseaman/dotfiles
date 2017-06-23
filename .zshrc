@@ -7,20 +7,17 @@ if [[ "$UNAMESTR" == 'Darwin' ]]; then
      HOMEDIR='/Users'
 fi
 
-# Path to your oh-my-zsh installation.
-  export ZSH=$HOMEDIR/$USER/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -57,14 +54,14 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python command-not-found common-aliases compleat debian docker history jsontools pep8 pip sublime sudo tmux virtualenvwrapper)
+plugins=(git python command-not-found common-aliases compleat debian docker history jsontools pep8 pip sublime sudo tmux aws virtualenvwrapper)
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOMEDIR/$USER/.oh-my-zsh
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# zsh theme
-ZSH_THEME="agnoster"
 
 # Syntax highlighting plugin
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -95,3 +92,15 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ll="ls -lah"
+
+# Docker aliases
+alias dockclean="docker ps -a -q -f status=exited | xargs docker rm"
+
+# Keybinding
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
+
+# ENV VARS
+export ANSIBLE_CONFIG="~/.ansible/ansible.cfg"
