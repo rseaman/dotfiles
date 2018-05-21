@@ -1,6 +1,6 @@
 [user]
-    #email = NEEDS INITIALIZATION
-	name = Riley Seaman
+    email = riley@foreflight.com
+    name = Riley Seaman
 [push]
     default = simple
 [alias]
@@ -10,3 +10,9 @@
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     s = status
     sub = submodule update --init --recursive
+    pl = pull
+    ps = push
+[core]
+	excludesfile = /Users/riley/.gitignore
+[merge]
+    tool = meld
