@@ -102,6 +102,11 @@ alias meld="/Applications/Meld"
 # Docker aliases
 alias dockclean="docker ps -a -q -f status=exited | xargs docker rm"
 
+# Functions
+tfm() {
+    terraform "$@"
+}
+
 # Keybinding
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
