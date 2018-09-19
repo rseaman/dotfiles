@@ -103,8 +103,20 @@ alias meld="/Applications/Meld"
 alias dockclean="docker ps -a -q -f status=exited | xargs docker rm"
 
 # Functions
-tfm() {
-    terraform "$@"
+tg() {
+    terragrunt "$@" --terragrunt-source-update
+}
+
+av() {
+    aws-vault "$@"
+}
+
+avl() {
+    aws-vault login "$@"
+}
+
+ave() {
+    aws-vault exec "$1" -- "$2"
 }
 
 # Keybinding
