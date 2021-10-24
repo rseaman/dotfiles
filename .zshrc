@@ -67,7 +67,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Use RVM to manage Ruby version
-source ~/.rvm/scripts/rvm
+#source ~/.rvm/scripts/rvm
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -129,9 +129,6 @@ export ANSIBLE_CONFIG="~/.ansible/ansible.cfg"
 source ~/.awscreds
 
 # PATH modifications
-export PATH="/opt/chefdk/bin:$PATH:$HOME/Library/Python/3.6/bin"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/Library/Python/3.6/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
