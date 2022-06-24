@@ -10,7 +10,7 @@ fi
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bullet-train"
+ZSH_THEME="jonathan"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Syntax highlighting plugin
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Use RVM to manage Ruby version
 #source ~/.rvm/scripts/rvm
@@ -125,8 +125,6 @@ bindkey "^[^[[C" forward-word
 
 # ENV VARS
 export ANSIBLE_CONFIG="~/.ansible/ansible.cfg"
-## Storing aws creds for knife configuration
-source ~/.awscreds
 
 # PATH modifications
 #export PATH="$PATH:$HOME/Library/Python/3.6/bin"

@@ -1,20 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
-"       Amir Salihefendic
-"       http://amix.dk - amix@amix.dk
 "
-" Version: 
-"       5.0 - 29/05/12 15:43:36
+" Mostly borrowed from blog post below
+" Also merged in https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
 "
 " Blog_post: 
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
 "
 " Syntax_highlighted:
 "       http://amix.dk/vim/vimrc.html
@@ -24,6 +14,7 @@
 "
 " Sections:
 "    -> Riley's Customization 1
+"    -> Folding
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -37,6 +28,7 @@
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
+"    -> Plugins
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -45,32 +37,26 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
 set nocompatible
-filetype off                  " required
+set cursorline
+set cursorcolumn
+set nowrap
+set showcmd
+set showmode
+set wildmode=list:longest
+filetype on
+filetype plugin on
+filetype indent on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-" Plugin 'nvie/vim-flake8'
-
-" All Plugins must be added before the following line
-call vundle#end()            " required
-
-" Plugin settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" This will enable code folding.
+" Use the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -120,6 +106,8 @@ if has("win16") || has("win32")
 else
     set wildignore+=.git\*,.hg\*,.svn\*
 endif
+
+set wildignore+=*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.flv,*.img,*.xlsx
 
 "Always show current position
 set ruler
@@ -176,7 +164,7 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax on 
 
 try
     colorscheme desert
@@ -311,7 +299,6 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 
@@ -464,3 +451,11 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+Plug 'nvie/vim-flake8'
+call plug#end()
