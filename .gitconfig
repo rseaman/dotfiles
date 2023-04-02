@@ -13,6 +13,6 @@
     pl = pull
     ps = push
 [core]
-	excludesfile = /Users/riley/.gitignore
+    excludesfile = /home/riley/.gitignore
 [merge]
     tool = meld
